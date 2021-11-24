@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/TuyaInc/tuya_cloud_sdk_go/pkg/tylog"
+	"github.com/mikelpsv/tuya_cloud_sdk_go/pkg/tylog"
 )
 
 type Info struct {

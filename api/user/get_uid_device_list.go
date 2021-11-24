@@ -3,7 +3,7 @@ package user
 import (
 	"fmt"
 
-	"github.com/TuyaInc/tuya_cloud_sdk_go/api/common"
+	"github.com/mikelpsv/tuya_cloud_sdk_go/api/common"
 )
 
 type GetDeviceListByUIDReq struct {

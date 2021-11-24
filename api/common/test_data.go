@@ -5,7 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/TuyaInc/tuya_cloud_sdk_go/config"
+	"github.com/mikelpsv/tuya_cloud_sdk_go/config"
 )
 
 type ExampleData struct {

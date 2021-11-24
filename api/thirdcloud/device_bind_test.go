@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/TuyaInc/tuya_cloud_sdk_go/api/common"
+	"github.com/mikelpsv/tuya_cloud_sdk_go/api/common"
 )
 
 func init() {
