@@ -16,6 +16,8 @@ func (t *GetTokenReq) API() string {
 }
 
 func GetTokenAPI() (*GetTokenAPIResponse, error) {
+	body := []byte(``)
+
 	getTokenReq := &GetTokenReq{}
 	req, err := NewHTTPRequest(getTokenReq)
 	if err != nil {
@@ -24,7 +26,7 @@ func GetTokenAPI() (*GetTokenAPIResponse, error) {
 	}
 
 	timestamp := GetTimestamp()
-	sign := GetEasySign(timestamp)
+	sign := GetBizSign(req, body, "", timestamp)
 	AddEasyHeader(req, sign, timestamp)
 
 	resp := &GetTokenAPIResponse{}
@@ -36,6 +38,8 @@ func GetTokenAPI() (*GetTokenAPIResponse, error) {
 	SetToken(resp.Result.AccessToken, resp.Result.RefreshToken, resp.Result.ExpireTime)
 	return resp, nil
 }
+
+
 
 type GetTokenAPIResponse struct {
 	Success bool `json:"success"`

@@ -40,7 +40,7 @@ func GetToken() (string, error) {
 	t := LocalToken.Token
 	expire := LocalToken.ExpireAt
 	LocalToken.Mu.RUnlock()
-	// token不为空，且有效时间大于30秒，直接返回缓存token
+	// Токен не пустой, а действительное время больше 30 секунд, берем токен из кэша
 	if t != "" && expire.After(time.Now().Add(30*time.Second)) {
 		return t, nil
 	}

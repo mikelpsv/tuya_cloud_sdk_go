@@ -20,6 +20,8 @@ func (t *RefreshTokenReq) API() string {
 
 // DoRefreshToken  To refresh token
 func DoRefreshToken() (*RefreshTokenResponse, error) {
+	body := []byte(``)
+
 	refreshToken, err := GetRefreshToken()
 	if err != nil || len(refreshToken) == 0 {
 		tylog.SugarLog.Infof("GetRefreshToken failed err:%v\n", err)
@@ -34,7 +36,7 @@ func DoRefreshToken() (*RefreshTokenResponse, error) {
 		return nil, err
 	}
 	timestamp := GetTimestamp()
-	sign := GetEasySign(timestamp)
+	sign := GetBizSign(req, body, "", timestamp)
 	AddEasyHeader(req, sign, timestamp)
 
 	resp := &RefreshTokenResponse{}

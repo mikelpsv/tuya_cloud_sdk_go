@@ -13,6 +13,8 @@ import (
 )
 
 func DoAPIRequest(a APIRequest, resp interface{}) error {
+	body := []byte(``)
+
 	var token, err = TokenLocalCache.GetToken()
 	if err != nil {
 		return ErrorGetTokenFailed
@@ -20,10 +22,11 @@ func DoAPIRequest(a APIRequest, resp interface{}) error {
 
 	uri := strings.Join([]string{config.HOST, a.API()}, "")
 	timestamp := GetTimestamp()
-	sign := GetBizSign(token, timestamp)
+
 	var req *http.Request
 	pr, ok := a.(RequestBody)
 	if ok {
+		body = pr.Body()
 		req, err = http.NewRequest(a.Method(), uri, bytes.NewReader(pr.Body()))
 	} else {
 		req, err = http.NewRequest(a.Method(), uri, nil)
@@ -31,6 +34,9 @@ func DoAPIRequest(a APIRequest, resp interface{}) error {
 	if err != nil {
 		return err
 	}
+
+	sign := GetBizSign(req, body, token, timestamp)
+
 	if a.Method() != "GET" {
 		AddBodyBizHeader(req, token, sign, timestamp)
 	} else {
