@@ -3,6 +3,10 @@
 ## 仓库迁移说明
 该仓库已经停止更新，请使用`https://github.com/tuya/tuya-cloud-sdk-go`
 
+https://developer.tuya.com/en/docs/iot/singnature?id=Ka43a5mtx1gsc#title-0-Signature%20algorithm  
+Signature algorithm  
+To improve service security, Tuya has updated the signature algorithm. New projects created after June 30, 2021 can only be verified with the new algorithm. Projects created before June 30, 2021 can still be verified with the algorithm described in Sign Requests (Old Version). However, to ensure data security, we recommend that you update to a new signature algorithm.Signature algorithm.  
+
 ## 使用前需要做
 
 1. 确定`serverHOST、AccessID、AccessKey`这些值
