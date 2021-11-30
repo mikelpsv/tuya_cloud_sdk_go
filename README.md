@@ -1,13 +1,12 @@
-# 涂鸦云云对接API SDK golang版本
+# Tuya Cloud API SDK версия golang
 
-## 仓库迁移说明
-该仓库已经停止更新，请使用`https://github.com/tuya/tuya-cloud-sdk-go`
+Оригинал тут `https://github.com/tuya/tuya-cloud-sdk-go`
 
-## 使用前需要做
+## Перед использованием
 
-1. 确定`serverHOST、AccessID、AccessKey`这些值
+1. Определите значения переменных `serverHOST、AccessID、AccessKey`
 
-2. 在你运行本sdk前，显式初始化一次：
+2. Установите переменные окружения：
 
    ```
    config.SetEnv(common.URLCN, "AccessID", "AccessKey")
@@ -17,7 +16,7 @@
 
 ## Example
 
-以获取设备信息接口为例，直接调用device.GetDevice()即可
+Пример получениея информации об устройстве, просто вызовите device.GetDevice () напрямую.
 
 ```golang
     deviceID := "xxx"
@@ -28,9 +27,9 @@
     // process got
 ```
 
-## 目前支持的API
+## Поддерживаемый в настоящее время API
 
-|  Method                   | API                                               | 描述  |
+|  Метод                   | API                                               | Описание (*не открываются)  |
 |  ----                     | ----                                              | ----  |
 | token.GetTokenAPI         | GET  /v1.0/token?grant_type=1                     | [简单模式获取access_token](https://docs.tuya.com/docDetail?code=K8uuxenajovgv) |
 | token.RefreshToken     | GET  /v1.0/token/{{easy_refresh_token}}           | [刷新token](https://docs.tuya.com/docDetail?code=K8uuxfcvdsqwm) |
