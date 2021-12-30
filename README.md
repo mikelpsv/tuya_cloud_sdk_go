@@ -1,27 +1,25 @@
-# 涂鸦云云对接API SDK golang版本
+# Tuya Cloud API SDK версия golang
 
-## 仓库迁移说明
-该仓库已经停止更新，请使用`https://github.com/tuya/tuya-cloud-sdk-go`
-
+## Важно
 https://developer.tuya.com/en/docs/iot/singnature?id=Ka43a5mtx1gsc#title-0-Signature%20algorithm  
 Signature algorithm  
 To improve service security, Tuya has updated the signature algorithm. New projects created after June 30, 2021 can only be verified with the new algorithm. Projects created before June 30, 2021 can still be verified with the algorithm described in Sign Requests (Old Version). However, to ensure data security, we recommend that you update to a new signature algorithm.Signature algorithm.  
 
-## 使用前需要做
+## Перед использованием
 
-1. 确定`serverHOST、AccessID、AccessKey`这些值
+1. Определите значения `serverHOST`, `AccessID`, `AccessKey`
 
-2. 在你运行本sdk前，显式初始化一次：
+2. Установите значения перед использованием. Значения `serverHOST` могут быть URLCN, URLUS, URLEU, URLIN 
 
    ```
    config.SetEnv(common.URLCN, "AccessID", "AccessKey")
    ```
 
-   
+ 
 
-## Example
+## Пример
 
-以获取设备信息接口为例，直接调用device.GetDevice()即可
+В качестве примера возьмем интерфейс информации об устройстве, просто вызовите device.GetDevice () напрямую.
 
 ```golang
     deviceID := "xxx"
